@@ -1,0 +1,40 @@
+PODS:
+  - AgoraRtcEngine_iOS (4.1.1):
+    - AgoraRtcEngine_iOS/AIAEC (= 4.1.1)
+    - AgoraRtcEngine_iOS/AINS (= 4.1.1)
+    - AgoraRtcEngine_iOS/AudioBeauty (= 4.1.1)
+    - AgoraRtcEngine_iOS/ClearVision (= 4.1.1)
+    - AgoraRtcEngine_iOS/ContentInspect (= 4.1.1)
+    - AgoraRtcEngine_iOS/DRM (= 4.1.1)
+    - AgoraRtcEngine_iOS/FaceDetection (= 4.1.1)
+    - AgoraRtcEngine_iOS/ReplayKit (= 4.1.1)
+    - AgoraRtcEngine_iOS/RtcBasic (= 4.1.1)
+    - AgoraRtcEngine_iOS/SpatialAudio (= 4.1.1)
+    - AgoraRtcEngine_iOS/VirtualBackground (= 4.1.1)
+    - AgoraRtcEngine_iOS/VQA (= 4.1.1)
+  - AgoraRtcEngine_iOS/AIAEC (4.1.1)
+  - AgoraRtcEngine_iOS/AINS (4.1.1)
+  - AgoraRtcEngine_iOS/AudioBeauty (4.1.1)
+  - AgoraRtcEngine_iOS/ClearVision (4.1.1)
+  - AgoraRtcEngine_iOS/ContentInspect (4.1.1)
+  - AgoraRtcEngine_iOS/DRM (4.1.1)
+  - AgoraRtcEngine_iOS/FaceDetection (4.1.1)
+  - AgoraRtcEngine_iOS/ReplayKit (4.1.1)
+  - AgoraRtcEngine_iOS/RtcBasic (4.1.1)
+  - AgoraRtcEngine_iOS/SpatialAudio (4.1.1)
+  - AgoraRtcEngine_iOS/VirtualBackground (4.1.1)
+  - AgoraRtcEngine_iOS/VQA (4.1.1)
+
+DEPENDENCIES:
+  - AgoraRtcEngine_iOS (= 4.1.1)
+
+SPEC REPOS:
+  trunk:
+    - AgoraRtcEngine_iOS
+
+SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: df216a18a01c30fba926565d889c9542319252ac
+
+PODFILE CHECKSUM: 5ce2ff7b072f1e89ea3caa478d8bb1eba35dbc14
+
+COCOAPODS: 1.11.3

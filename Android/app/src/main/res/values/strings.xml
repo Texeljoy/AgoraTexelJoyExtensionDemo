@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ExtensionExample</string>
+    <string name="enable_extension">enableExtension</string>
+    <string name="disable_extension">disableExtension</string>
+    <string name="init_extension">initExtension</string>
+    <string name="set_sticker">setSticker</string>
+    <string name="set_style_filter">setStyleFilter</string>
+    <string name="change_params">htChangeParams</string>
+    <string name="game_view_content_description"></string>
+    <string name="face">faces:</string>
+
+</resources>
