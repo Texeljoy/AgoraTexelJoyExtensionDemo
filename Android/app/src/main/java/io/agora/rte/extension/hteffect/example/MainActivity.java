@@ -106,11 +106,11 @@ public class MainActivity
         try {
             //在线鉴权方式(online authentication)
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("appId", HtKey.HTKey);
+            jsonObject.put("appId", HtKey.HT_APPID);
             setExtensionProperty("htInitHTEffectOnline", jsonObject.toString());
             //离线鉴权方式(offline authentication)
             // JSONObject jsonObject = new JSONObject();
-            // jsonObject.put("license", HtKey.HTKey);
+            // jsonObject.put("license", HtKey.HT_LICENSE);
             // setExtensionProperty("htInitHTEffectOffline", jsonObject.toString());
 
 
