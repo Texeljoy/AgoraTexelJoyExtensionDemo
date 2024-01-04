@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *const HTKey = @"<YOUR_HT_SDK_KEY>";
+NSString *const HT_APPID = @"<YOUR_HT_SDK_APPID>";
+
+NSString *const HT_LICENSE = @"<YOUR_HT_SDK_LICENSE>";
 
 #endif /* HTKey_h */

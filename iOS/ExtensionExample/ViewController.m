@@ -50,19 +50,17 @@
                                         extension:@"HTEffect"
                                               key:@"htInitHTEffectOnline"
                                             value:[self toJson:@{
-                                                @"key":HTKey
+                                                @"appId":HT_APPID
                                             }]];
     
     
-    /*
     // 离线鉴权方式
-    [self.agoraKit setExtensionPropertyWithVendor:@"Texeljoy"
-                                        extension:@"HTEffect"
-                                              key:@"tiInitOffline"
-                                            value:[self toJson:@{
-                                                @"key":HTEffectKey
-                                            }]];
-    */
+//    [self.agoraKit setExtensionPropertyWithVendor:@"Texeljoy"
+//                                        extension:@"HTEffect"
+//                                              key:@"htInitHTEffectOffline"
+//                                            value:[self toJson:@{
+//                                                @"license":HT_LICENSE
+//                                            }]];
 }
 
 - (void)initRtcEngine {
@@ -98,7 +96,7 @@
                                         extension:@"HTEffect"
                                               key:@"htSetRenderEnable"
                                             value:[self toJson:@{
-                                                @"key":@(self.enable)
+                                                @"enable":@(self.enable)
                                             }]];
     
     if (self.enable) {
@@ -155,11 +153,16 @@
 - (void)onEvent:(NSString *)provider extension:(NSString *)extension key:(NSString *)key value:(NSString *)value{
 //    NSLog(@"onEvent provider: %@ extension: %@ key: %@ value: %@", provider, extension, key, value);
     
-    if([key isEqualToString:@"htInitHTEffectOnlineResult"]){
-        //value 为0 初始化成功 其他则失败
+    if([key isEqualToString:@"htInitHTEffectOfflineResult"]){
+        //value
         NSLog(@"onEvent provider: %@ extension: %@ key: %@ value: %@", provider, extension, key, value);
-        
     }
+    
+    if([key isEqualToString:@"htErrorCallback"]){
+        //value
+        NSLog(@"onEvent provider: %@ extension: %@ key: %@ value: %@", provider, extension, key, value);
+    }
+    
     if([key isEqualToString:@"htIsTracking"]){
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[value dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];

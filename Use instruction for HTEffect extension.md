@@ -4,7 +4,7 @@ This following content introduces how to integrate and use Hongtu HTEffect beaut
 
 ## Technical Principles
 
-HTEffect extension encapsulates the core API of HTEffect. By calling the [setExtensionProperty](https://docs.agora.io/cn/video-call-4.x-beta/API%20Reference/java_ng/API/class_irtcengine.html#api_setextensionproperty) or [setExtensionPropertyWithVendor](https://docs.agora.io/cn/video-call-4.x-beta/API%20Reference/ios_ng/API/class_irtcengine.html#api_setextensionproperty) functions of the [Agora Video SDK v4.1.1](https://docs.agora.io/en/video-calling/overview/product-overview?platform=android) and passing in the specified `key` and `value`, you can quickly integrate the effects of HTEffect.
+HTEffect extension encapsulates the core API of HTEffect. By calling the [setExtensionProperty](https://doc.shengwang.cn/api-ref/rtc/android/API/toc_extension#api_irtcengine_setextensionproperty) or [setExtensionPropertyWithVendor](https://doc.shengwang.cn/api-ref/rtc/ios/API/toc_extension#api_irtcengine_setextensionproperty) functions of the [Agora Video SDK v4.x](https://doc.shengwang.cn/doc/rtc/homepage) and passing in the specified `key` and `value`, you can quickly integrate the effects of HTEffect.
 
 Taking `setExtensionProperty` as an example, the value parameter wraps some or all of the API parameters of HTEffect in JSON format. Therefore, when calling `setExtensionProperty`, as long as the specified key and value are passed in, the corresponding HTEffect API can be called to implement effects related functions. The same applies to setExtensionPropertyWithVendor.
 The supported keys and values can be found in [Instruction of HTEffect extension interface](https://github.com/Texeljoy/AgoraTexelJoyExtension/tree/master).
@@ -22,10 +22,10 @@ The supported keys and values can be found in [Instruction of HTEffect extension
 
 View the complete sample demo and project structure on Gitee:
 
-| platform    | language        | demo             |
-| :------ | :---------- | :---------------- |
-| Android     | Java | [AgoraTexelJoyExtensionDemo/Android](https://github.com/Texeljoy/AgoraTexelJoyExtensionDemo.git) |
-| iOS     | Objective-C | [AgoraTexelJoyExtensionDemo/iOS](https://github.com/Texeljoy/AgoraTexelJoyExtensionDemo.git) |
+| platform | language    | demo |
+| :------- | :---------- | :---------------- |
+| Android  | Java        | [AgoraTexelJoyExtensionDemo/Android](https://github.com/Texeljoy/AgoraTexelJoyExtensionDemo.git) |
+| iOS      | Objective-C | [AgoraTexelJoyExtensionDemo/iOS](https://github.com/Texeljoy/AgoraTexelJoyExtensionDemo.git) |
 
 Refer to the following steps to quickly get through the demo:
 
@@ -53,10 +53,13 @@ Refer to the following steps to quickly get through the demo:
     }
     ```
 8. Open `agora-texel-joy-extension-demo/Android/app/src/main/java/io/agora/rte/extension/hteffect/example/HtKey.java` and make the following modifications:
-	- Replace `<YOUR_HT_SDK_KEY>` with the test key provided by HTEffect purchased from Agora platform:
+	- Replace `<YOUR_HT_SDK_APPID>` or `<YOUR_HT_SDK_LICENSE>` with the test key provided by HTEffect purchased from Agora platform:
     ```java
     public interface HtKey {
-        String HTKey = "<YOUR_HT_SDK_KEY>";
+        //online
+        String HT_APPID = "<YOUR_HT_SDK_APPID>";
+        //offline
+        //String HT_LICENSE = "<YOUR_HT_SDK_LICENSE>";
     }
     ```
 9. Connect an Android real machine (not an emulator) and run the project.
@@ -83,9 +86,12 @@ Refer to the following steps to quickly get through the demo:
     NSString *const token = nil;
     ```
 8. Open `agora-texel-joy-extension-demo/iOS/ExtensionExample/HTKey.h` and make the following modifications:
- - Replace `<YOUR_HT_SDK_KEY>` with the test key provided by HTEffect purchased from Agora platform:
+ - Replace `<YOUR_HT_SDK_APPID>` or `<YOUR_HT_SDK_LICENSE>` with the test key provided by HTEffect purchased from Agora platform:
      ```objective-c
-     NSString *const HTKey = @"<YOUR_HT_SDK_KEY>";
+     // online
+     NSString *const HT_APPID = @"<YOUR_HT_SDK_APPID>";
+     // offline
+     //NSString *const HT_LICENSE = @"<YOUR_HT_SDK_LICENSE>";
      ```
 9. Connect an iOS real machine (not an emulator) and run the project.
 
@@ -103,7 +109,7 @@ After running, the project will be installed on your Android or iOS device.
 
 #### Implementing video call using the Agora SDK
 
-HTEffect needs to be used in conjunction with the [Agora SDK v4.1.1](https://docs.agora.io/en/video-calling/overview/product-overview?platform=android). Refer to the following documents to integrate the video SDK v4.1.1 and implement basic video calls:
+HTEffect needs to be used in conjunction with the [Agora SDK v4.x](https://doc.shengwang.cn/doc/rtc/homepage). Refer to the following documents to integrate the video SDK v4.x and implement basic video calls:
 - [Implement video call (Android)](https://docs.agora.io/en/video-calling/get-started/get-started-sdk?platform=android#project-setup)
 - [Implement video call (iOS)](https://docs.agora.io/en/video-calling/get-started/get-started-sdk?platform=ios#project-setup)
 
@@ -186,7 +192,7 @@ private void initExtension() {
     try {
         // online authentication
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("appId",HtKey.HTKey);
+        jsonObject.put("appId",HtKey.HT_APPID);
         setExtensionProperty("htInitHTEffectOnline", jsonObject.toString());
     } catch (JSONException e) {
         Log.e(TAG, e.toString());
@@ -200,7 +206,7 @@ private void initExtension() {
     try {
         // offline authentication
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("license",HtKey.HTKey);
+        jsonObject.put("license",HtKey.HT_LICENSE);
         setExtensionProperty("htInitHTEffectOffline", jsonObject.toString());
     } catch (JSONException e) {
         Log.e(TAG, e.toString());
@@ -217,7 +223,7 @@ private void initExtension() {
                                         extension:@"HTEffect"
                                               key:@"htInitHTEffectOnline"
                                             value:[self toJson:@{
-                                                @"license":HTSDKKey
+                                                @"appId":HT_APPID
                                             }]];
 }
 ```
@@ -229,7 +235,7 @@ private void initExtension() {
                                         extension:@"HTEffect"
                                               key:@"htInitHTEffectOffline"
                                             value:[self toJson:@{
-                                                @"license":HTSDKKey
+                                                @"license":HT_LICENSE
                                             }]];
 }
 ```
@@ -239,11 +245,11 @@ private void initExtension() {
 Call `setExtensionProperty` (Android) or `setExtensionPropertyWithVendor` (iOS) and pass in the corresponding key and value to achieve the following functions:
 
 1. Quick beauty
-2. Precise beauty、Reshape、Hairstyling、Style
-3. Sticker、Gift、Watermark
-4. Portrait matting、Green screen matting
+2. Precise beauty, Reshape, Hairstyling, Makeup, MakeupStyle, Body beauty
+3. Sticker, Gift, Mask, Watermark
+4. Portrait matting, Green screen matting
 5. Gesture recognition
-6. Style filter、Effect filter、Funny filter
+6. Style filter, Effect filter, Funny filter
 
 You can make combined calls according to the needs of the scene. Please refer to [Interface Instruction](https://github.com/Texeljoy/AgoraTexelJoyExtension/tree/master) for the corresponding key and value.
 
