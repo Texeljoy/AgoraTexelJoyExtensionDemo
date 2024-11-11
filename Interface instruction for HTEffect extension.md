@@ -59,6 +59,31 @@ When calling the function `setExtensionProperty`/`setExtensionPropertyWithVendor
 | [htSetExtremeLimitEnable](#htsetextremelimitenable)                 | Set parameter extremum limit on/off. |
 | [htSetIsMirror](#htsetismirror)                                     | Set mirror. |
 | [htSetMaxFaces](#htsetmaxfaces)                                     | Set the maximum number of faces detected. |
+| [htGetARItemUrlBy](#htGetARItemUrlBy) | Return the network path of AR prop materials. |
+| [htGetARItemPathBy](#htGetARItemPathBy) | Return the sandbox path of AR prop materials. |
+| [htGetMakeupUrl](#htGetMakeupUrl) | Return the network path for makeup materials. |
+| [htGetMakeupPath](#htGetMakeupPath) | Return the sandbox path for makeup materials. |
+| [htGetAISegEffectUrl](#htGetAISegEffectUrl) | Return the network path for AISegEffect materials. |
+| [htGetAISegEffectPath](#htGetAISegEffectPath) | Return the sandbox path for AISegEffect materials. |
+| [htGetGestureEffectUrl](#htGetGestureEffectUrl) | Return the network path for GestureEffect materials. |
+| [htGetGestureEffectPath](#htGetGestureEffectPath) | Return the sandbox path for GestureEffect materials. |
+| [htGetChromaKeyingUrl](#htGetChromaKeyingUrl) | Return the network path for chroma key image segmentation materials. |
+| [htGetChromaKeyingPath](#htGetChromaKeyingPath) | Return the sandbox path for chroma key image segmentation materials. |
+| [htGetFilterUrl](#htGetFilterUrl) | Return the network path for filter materials. |
+| [htGetFilterPath](#htGetFilterPath) | Return the sandbox path for filter materials. |
+| [htGetStyleUrl](#htGetStyleUrl) | Return the network path for Style materials. |
+| [htGetStylePath](#htGetStylePath) | Return the sandbox path for Style materials. |
+| [htGetResourceUrl](#htGetResourceUrl) | Return the network path for materials. |
+| [htSetResourceUrl](#htSetResourceUrl) | Set the URL for the network path of materials. |
+| [htSetResourcePath](#htSetResourcePath) | Set the path. |
+| [htSetAuthNetworkNode](#htSetAuthNetworkNode) | Set the overseas node. |
+| [htSetTransparencyRenderEnable](#htSetTransparencyRenderEnable) | Partial transparency rendering support switch. |
+| [htSetFaceDetecionCPUPowersaveEnable](#htSetFaceDetecionCPUPowersaveEnable) | Set the multi-core CPU operation switch for the face detection algorithm. |
+| [htSetPerformancePriorityEnable](#htSetPerformancePriorityEnable) | Set the performance priority mode switch. |
+| [htSetFaceDetectionDistanceLevel](#htSetFaceDetectionDistanceLevel) | Set the face detection distance level. |
+| [htSetFaceDetectorType](#htSetFaceDetectorType) | Set the face detector type. |
+| [htGetVersionCode](#htGetVersionCode) | Get the current SDK version number. |
+| [htGetVersion](#htGetVersion) | Get the current SDK version information. |
 
 ### Callback key
 
@@ -67,6 +92,7 @@ This section lists the keys returned by the `onEvent` callback of Agora SDK.
 | key in onEvent callback                                        | description |
 | :------------------------------------------------------------- | :------------------------------ |
 | [htInitHTEffectOfflineResult](#htinithteffectofflineresult)    | Obtain result of offline authentication. |
+| [htInitHTEffectOnlineResult](#htInitHTEffectOnlineResult) | Get the online authorization result function. |
 | [htIsTracking](#htistracking)                                  | Obtain the number of faces detected. |
 | [htErrorCallback](#hterrorcallback)                            | error information。 |
 
@@ -266,6 +292,14 @@ value contains the following parameters:
 | :-------------- | :---------------------------------------- |
 | `initInfo`      | The result of offline authentication. Int type. Greater than 0=successful, 0=uninitialized, -1=certificate error, -2=package name error, -3=application name error, -4=certificate expiration, -5=path error, -6=model file error, -7=certificate expiration, -8=version error. |
 
+### htInitHTEffectOnlineResult
+
+value contains the following parameters:
+
+| value 参数   | 描述                                                         |
+| :----------- | :----------------------------------------------------------- |
+| `initStatus` | Int type, online authorization result value. 1 = initialization successful, 0 = initialization failed. |
+
 ### htIsTracking
 
 value contains the following parameters:
@@ -284,3 +318,151 @@ value contains the following parameters:
 | :-------- | :-------------------------------------- |
 | `key`     | The name of error methond, String type。 |
 | `code`    | error code, Int type, -1=value error。 |
+
+### htGetARItemUrlBy
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `type`          | Int type, enum value for AR prop feature types. For specific values, see [HTARItemTypes](https://github.com/Texeljoy/HTEffect_iOS/blob/master/HTEffect.framework/Headers/HTEffectInterface.h). |
+
+### htGetARItemPathBy
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `type`          | Int type, enum value for AR prop feature types. For specific values, see  [HTARItemTypes](https://github.com/Texeljoy/HTEffect_iOS/blob/master/HTEffect.framework/Headers/HTEffectInterface.h). |
+
+### htGetMakeupUrl
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `type`          | Int type, enum value for make up types.For specific values, see   [HTMakeupTypes](https://github.com/Texeljoy/HTEffect_iOS/blob/master/HTEffect.framework/Headers/HTEffectInterface.h)。 |
+
+### htGetMakeupPath
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `type`          | Int type, enum value for make up types.For specific values, see    [HTMakeupTypes](https://github.com/Texeljoy/HTEffect_iOS/blob/master/HTEffect.framework/Headers/HTEffectInterface.h)。 |
+
+### htGetAISegEffectUrl
+
+value has no parameters.
+
+### htGetAISegEffectPath
+
+value has no parameters.
+
+### htGetGestureEffectUrl
+
+value has no parameters.
+
+### htGetGestureEffectPath
+
+value has no parameters.
+
+### htGetChromaKeyingUrl
+
+value has no parameters.
+
+### htGetChromaKeyingPath
+
+value has no parameters.
+
+### htGetFilterUrl
+
+value has no parameters.
+
+### htGetFilterPath
+
+value has no parameters.
+
+### htGetStyleUrl
+
+value has no parameters.
+
+### htGetStylePath
+
+value has no parameters.
+
+### htGetResourceUrl
+
+value has no parameters.
+
+### htSetResourceUrl
+
+value contains the following parameters:
+
+| parameter value | description                            |
+| :-------------- | :------------------------------------- |
+| `url`           | String type, set the network path URL. |
+
+### htSetResourcePath
+
+value contains the following parameters:
+
+| parameter value | description                        |
+| :-------------- | :--------------------------------- |
+| `path`          | String type, set the sandbox path. |
+
+### htSetAuthNetworkNode
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `node`          | String type, node name. Default "cn" for domestic node. "sg" for overseas node - Singapore. |
+
+### htSetTransparencyRenderEnable
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `enable`        | BOOL 型，部分透明渲染支持开关。开启为`true`，关闭为`false`，默认关闭。 |
+
+### htSetFaceDetecionCPUPowersaveEnable
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `enable`        | BOOL type, partial transparency rendering support switch. `true` to enable, `false` to disable. Default is `false`. |
+
+### htSetPerformancePriorityEnable
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `enable`        | BOOL type, set the performance priority mode switch. Default is `true` |
+
+### htSetFaceDetectionDistanceLevel
+
+value contains the following parameters:
+
+| parameter value | description                                                  |
+| :-------------- | :----------------------------------------------------------- |
+| `level`         | Int type, set the face detection distance level (3 levels available: 1, 2, 3). Default is level 1. |
+
+### htSetFaceDetectorType
+
+value contains the following parameters:
+
+| parameter value | description                                         |
+| :-------------- | :-------------------------------------------------- |
+| `type`          | Int type, set the face detector type. Default is 0. |
+
+### htGetVersionCode
+
+value has no parameters.
+
+### htGetVersion
+
+value has no parameters.

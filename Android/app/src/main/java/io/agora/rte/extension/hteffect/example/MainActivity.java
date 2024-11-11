@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.Observable;
 import androidx.databinding.ObservableBoolean;
 
+import io.agora.rtc2.Constants.MediaSourceType;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,9 +54,9 @@ public class MainActivity
         setContentView(R.layout.activity_main);
 
 
-       initUI();
-       initData();
-       initPermission();
+        initUI();
+        initData();
+        initPermission();
     }
 
     private void initData() {
@@ -124,6 +125,7 @@ public class MainActivity
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("type",0);
             jsonObject.put("name","ziran3");
+            jsonObject.put("value",100);
             setExtensionProperty("htSetFilter", jsonObject.toString());
 
 
@@ -136,7 +138,7 @@ public class MainActivity
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("type",0);
-            jsonObject.put("name","ht_sticker_effect_rabbit_bowknot");
+            jsonObject.put("name","ht_sticker_effect_smallcat");
             setExtensionProperty("htSetARItem", jsonObject.toString());
 
             buttonStickers.setEnabled(false);
@@ -191,10 +193,10 @@ public class MainActivity
         config.mExtensionObserver = this;
         config.addExtension("AgoraTexelJoyExtension");
         config.mEventHandler = new IRtcEngineEventHandler() {
-            @Override
-            public void onWarning(int warn) {
-                Log.w(TAG, String.format("onWarning %d", warn));
-            }
+            // @Override
+            // public void onWarning(int warn) {
+            //     Log.w(TAG, String.format("onWarning %d", warn));
+            // }
 
             @Override
             public void onError(int err) {
@@ -237,7 +239,7 @@ public class MainActivity
         try {
             JSONObject jsonObject = new JSONObject(value);
             if ("htIsTracking".equals(key)) {
-            faceNumber = jsonObject.getInt("faceNumber");
+                faceNumber = jsonObject.getInt("faceNumber");
             }
         } catch (JSONException e) {
             e.printStackTrace();

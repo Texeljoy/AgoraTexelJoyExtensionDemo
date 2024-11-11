@@ -109,18 +109,25 @@
 - (IBAction)setFilter:(id)sender {
     self.setFilterBtn.tag += 1;
     NSString *name = @"";
-    if (self.setFilterBtn.tag%2 == 0) {
+    int value = 0;
+    if (self.setFilterBtn.tag % 2 == 0) {
         name = @"";
+        value = 0;
         [self.setFilterBtn setTintColor:UIColor.blackColor];
-    }else{
+    } else {
         name = @"ziran3";
+        value = 100;
         [self.setFilterBtn setTintColor:[UIColor colorWithRed:0 green:1.0 blue:51.0/255 alpha:1.0]];
     }
     
-    [self.agoraKit setExtensionPropertyWithVendor:@"Texeljoy" extension:@"HTEffect" key:@"htSetFilter" value:[self toJson:@{
-        @"type":@0,//风格滤镜
-        @"name":name
-    }]];
+    [self.agoraKit setExtensionPropertyWithVendor:@"Texeljoy"
+                                       extension:@"HTEffect"
+                                             key:@"htSetFilter"
+                                           value:[self toJson:@{
+                                               @"type": @0, 
+                                               @"name": name,
+                                               @"value": @(value)
+                                           }]];
 }
 
 - (IBAction)setARItme:(id)sender {
@@ -130,7 +137,7 @@
         name = @"";
         [self.setARItmeBtn setTintColor:UIColor.blackColor];
     }else{
-        name = @"ht_sticker_effect_rabbit_bowknot";
+        name = @"ht_sticker_effect_smallcat";
         [self.setARItmeBtn setTintColor:[UIColor colorWithRed:0 green:1.0 blue:51.0/255 alpha:1.0]];
     }
       
